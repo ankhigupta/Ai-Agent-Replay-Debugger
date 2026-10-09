@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agentdebug"
+version = "1.0.0"
+description = "Framework-independent, evidence-backed debugging for AI-agent executions."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+# Core has zero required third-party dependencies -- see README.md.
+dependencies = []
+
+[project.optional-dependencies]
+# Inspected, not guessed: langgraph==1.2.11 / langgraph-checkpoint==4.2.0
+# are what this repo's own virtualenv actually has installed and what the
+# LangGraph integration (agentdebug.integrations.langgraph) was built and
+# tested against.
+langgraph = ["langgraph>=1.2.11,<2"]
+
+# Only `agentdebug` (and its subpackages) ships in the SDK distribution.
+# `benchmark`, `examples`, and `tests` are this repository's development
+# tooling, not part of the installable package.
+[tool.setuptools.packages.find]
+include = ["agentdebug*"]

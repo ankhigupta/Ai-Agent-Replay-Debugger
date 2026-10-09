@@ -225,3 +225,6 @@ node_modules/
 
 # OS
 .DS_Store
+
+# AgentDebug Phase 7 benchmark output (generated evidence/report artifacts)
+.benchmark_output/
